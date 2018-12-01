@@ -15,7 +15,7 @@ RUN pecl install apcu
 RUN echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini
 
 # Install extensions using the helper script provided by the base image
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install mysqli pdo_mysql
 RUN docker-php-ext-install -j$(nproc) iconv mcrypt
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install -j$(nproc) gd
